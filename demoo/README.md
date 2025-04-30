@@ -1,4 +1,4 @@
- Demo App - Developing with Docker
+# Demo App - Developing with Docker
 This demo app showcases a simple User Profile Application set up using:
 
 index.html with pure JavaScript and CSS
@@ -9,7 +9,8 @@ MongoDB for data storage
 
 All components are containerized with Docker.
 
-🐳 Running the Application with Docker
+## 🐳 Running the Application with Docker
+
 Step 1: Create a Docker Network
 bash
 Copy
@@ -19,6 +20,7 @@ Step 2: Start MongoDB Container
 bash
 Copy
 Edit
+
 docker run -d \
   --name mongodb \
   --network mongo-network \
@@ -26,6 +28,7 @@ docker run -d \
   -e MONGO_INITDB_ROOT_USERNAME=admin \
   -e MONGO_INITDB_ROOT_PASSWORD=password \
   mongo:4.2.1
+ 
 Step 3: Start Mongo-Express Container
 bash
 Copy
@@ -40,7 +43,8 @@ docker run -d \
   -e ME_CONFIG_BASICAUTH_USERNAME=admin \
   -e ME_CONFIG_BASICAUTH_PASSWORD=password \
   mongo-express:0.49
-Note:
+  
+## Note:
 Creating a separate Docker network is optional.
 If you use the default network, omit the --network flag in the above commands.
 
@@ -62,7 +66,7 @@ node server.js
 Step 6: Access the Frontend
 Open http://localhost:3000 in your browser.
 
-🐳 Running the Application with Docker Compose
+## 🐳 Running the Application with Docker Compose
 Step 1: Start MongoDB and Mongo-Express
 bash
 Copy
@@ -90,7 +94,8 @@ npm install
 node server.js
 Access the app at http://localhost:3000.
 
-🛠️ Building a Docker Image for the Application
+## 🛠️ Building a Docker Image for the Application
+
 To build a custom Docker image:
 
 bash
@@ -99,7 +104,7 @@ Edit
 docker build -t my-app:1.0 .
 The . at the end points to the location of the Dockerfile.
 
-📌 Notes
+## Note
 Ensure Docker and Node.js are installed on your machine.
 
 MongoDB credentials used in this app are basic for demonstration purposes.
